@@ -1,0 +1,3 @@
+[submodule "Assets/trinitypcg_core"]
+	path = Assets/trinitypcg_core
+	url = https://github.com/RafaelCS-Aula/trinitypcg_core
