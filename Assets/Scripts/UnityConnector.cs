@@ -2,32 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using trinitygencore;
-public class UnityConnector : MonoBehaviour, IEngineId
+public class UnityConnector : MonoBehaviour, IEngineLayer<Connector>
 {
 
-    public Connector coreParameters;
-
-    private int _id;
-    public int EngineId {get => _id; }
-
+    public Connector CoreParams {get => _coreParams;}
+    [SerializeField] private Connector _coreParams;
 
     [SerializeField] private  float _pinSpacing = 0.5f;
 
     [SerializeField] private Color _gizmoColor;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public void SetId(int id) => _id = id; //_id = Random.Range(1, int.MaxValue);
+    public Connector LinkComponents() => new Connector(this,_coreParams.pinCount, CoreParams.ConnectorColor);
 
     private void OnDrawGizmos()
         {
@@ -39,9 +26,9 @@ public class UnityConnector : MonoBehaviour, IEngineId
 
             Vector3 pos;
 
-            for(float i = 0 - coreParameters.pinCount / 2; i <=  coreParameters.pinCount / 2; i++)
+            for(float i = 0 - CoreParams.pinCount / 2; i <=  CoreParams.pinCount / 2; i++)
             {
-                if(coreParameters.pinCount % 2 == 0 && i == 0)
+                if(CoreParams.pinCount % 2 == 0 && i == 0)
                 {
 
                     continue;

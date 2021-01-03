@@ -298,7 +298,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1743595179
+--- !u!1 &1593087470
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,49 +306,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1743595181}
-  - component: {fileID: 1743595180}
-  - component: {fileID: 1743595182}
+  - component: {fileID: 1593087471}
+  - component: {fileID: 1593087472}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1743595180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743595179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25632cb0f0449bb4bbbeee0f3e7f62e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  geometryOffset: 0
-  alg:
-    pieceList: []
-    useStarter: 0
-    starterList: []
-    starterConnectorTolereance: 0
-    pinTolerance: 0
-  generationPasses: 00000000
-  conMan:
-    pinCount: 5
-    isConnected: 0
-  conBoy:
-    pinCount: 0
-    isConnected: 0
---- !u!4 &1743595181
+--- !u!4 &1593087471
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743595179}
+  m_GameObject: {fileID: 1593087470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -356,20 +329,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1743595182
+--- !u!114 &1593087472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743595179}
+  m_GameObject: {fileID: 1593087470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32fd7772befd4db44bae9cc04fc87d09, type: 3}
+  m_Script: {fileID: 11500000, guid: 25632cb0f0449bb4bbbeee0f3e7f62e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coreParameters:
-    pinCount: 2
-    isConnected: 0
-  _pinSpacing: 0.5
-  _gizmoColor: {r: 0.19751413, g: 0.8490566, b: 0.10012458, a: 1}
+  _generatorParams:
+    pieceList: []
+    useStarter: 0
+    starterList: []
+    starterConnectorTolereance: 0
+    pinTolerance: 0
+  CreateOnStart: 1
+  geometryOffset: 0
+  levelPieces:
+  - {fileID: 2197851468377728309, guid: f2e910ff8e965a24a99aa9299bf6253d, type: 3}
+  - {fileID: 4996627052450614278, guid: 93a356d1c4e058e4bab21a58c4680b27, type: 3}
+  - {fileID: 8076849129366393529, guid: 3e92ee4d497fc4c40a6f4d1b2b177ac9, type: 3}
+  - {fileID: 258199627817791774, guid: 7a3654afe9f10b1458550f46506c403b, type: 3}
+  startPieces: []
+  generationMethod: 0
+  arenaParams:
+    MaxPieces: 12
+  corridorParams:
+    MaxPieces: 0
+    pinchEnd: 0
+    useEndPiece: 0
+    enderList: []
+  starParams:
+    spokeLength: 0
+  branchParams:
+    maxBranches: 0
+    branchLength: 0
+    branchLengthVariance: 0
+    pieceJumpSize: 0

@@ -1,35 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using trinitygencore;
 
-public class UnityLevelPiece : MonoBehaviour, IEngineId
+public class UnityLevelPiece : MonoBehaviour, IEngineLayer<LevelGeometry>
 {
-    private int _id;
-    public int EngineId {get => _id; }
-
-    private List<UnityConnector> myUnityConnectors;
-
-    // Start is called before the first frame update
-    void Start()
+    public LevelGeometry CoreParams {get => _coreParams;}
+    [SerializeField] private LevelGeometry _coreParams;
+    private UnityConnector[] myUnityConnectors;
+    
+    public LevelGeometry LinkComponents()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public UnityConnector FindConnectorById(int coreId)
-    {
-        foreach (UnityConnector c in myUnityConnectors)
+        FindConnectors();
+        Connector[] connectors = new Connector[myUnityConnectors.Length];
+        for (int i = 0; i < myUnityConnectors.Length; i++)
         {
-            if(c.EngineId == coreId)
-            {
-                return c;
-            }
+            connectors[i] = myUnityConnectors[i].LinkComponents(); 
         }
-        return null;
+        return new LevelGeometry(this,connectors);
+    }
+
+    private void FindConnectors()
+    {
+        myUnityConnectors = GetComponentsInChildren<UnityConnector>();
     }
 }
